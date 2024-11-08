@@ -1,0 +1,29 @@
+﻿.card {
+    margin: 20px;
+    padding: 20px;
+    
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+body {
+    background-image: url('https://i.pinimg.com/564x/e8/f7/f3/e8f7f35df86fd40320048f87a7a7b271.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.proba {
+    text-decoration: none;
+    color: black;
+}
+.btn {
+    border: 0.5px solid;
+    text-decoration: none;
+}
+.btn:hover {
+        color: #fff;
+        background-color: #1A1A1A;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        transform: translateY(-2px);
+}

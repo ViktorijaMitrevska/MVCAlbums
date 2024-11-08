@@ -1,0 +1,87 @@
+﻿@model MVCAlbums.ViewModels.ArtistFilterViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<link rel="stylesheet" href="~/css/details.css">
+
+
+<div>
+    
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-7 px-3">
+                    <div class="card-block px-6">
+                        <h3 class="card-title">
+                            @Html.DisplayFor(model => model.Artist.Name)
+                        </h3>
+                       
+                        <br />
+                        <p class="card-text">
+                            <strong>@Html.DisplayNameFor(model => model.Artist.BirthDate):</strong>
+                            @Html.DisplayFor(model => model.Artist.BirthDate)
+                        </p>
+                        <p class="card-text">
+                            <strong>
+                                @Html.DisplayNameFor(model => model.Artist.Nationality):
+                            </strong>
+                            @Html.DisplayFor(model => model.Artist.Nationality)
+                           
+                        </p>
+                        <p class="card-text">
+                            <strong>@Html.DisplayNameFor(model => model.Artist.Gender):</strong>
+                            @Html.DisplayFor(model => model.Artist.Gender)
+                        </p>
+                        <p class="card-text">
+                            <strong>@Html.DisplayNameFor(model => model.Artist.About):</strong>
+                            @Html.DisplayFor(model => model.Artist.About)
+                        </p>
+                        <p class="card-text">
+                            <strong> @Html.DisplayNameFor(model => model.Artist.Albums)</strong>
+                            <div class="albums-container">
+                                @if (Model.AlbumByArtist != null && Model.AlbumByArtist.Any())
+                                {
+                                    @foreach (var album in Model.AlbumByArtist)
+                                    {
+                                         <a class="album-card proba" asp-controller="Albums" asp-action="Details" asp-route-id="@album.Id">
+
+                                            <div class="album-items">
+
+                                                <strong><p>@album.AlbumName</p></strong>
+                                                <p>Genre: @album.AlbumGenres.FirstOrDefault()?.Genre.GenreName</p>
+                                                @if (album.Reviews != null)
+                                                {
+                                                    <p>Reviews:</p>
+                                                    <ul>
+                                                        @foreach (var review in album.Reviews)
+                                                        {
+                                                            <li>@review.Comment</li>
+                                                        }
+                                                    </ul>
+                                                }
+
+                                            </div>
+                                            </a>
+                                        
+                                    }
+                                }
+                                else
+                                {
+                                    <p>No books found by this author.</p>
+                                }
+                            </div>
+                        </p>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")){
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Artist.Id">Edit</a>
+                        }
+                        <a class="btn btn-primary" asp-action="Index">Back to List</a>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <img class="d-block w-100" src="@Url.Content(Model.Artist.ArtistImg)" alt="" style="height:800px; width:200px; padding:20px">
+                </div>
+            </div>
+
+        </div>
+   </div>

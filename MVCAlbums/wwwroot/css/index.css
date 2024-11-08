@@ -1,0 +1,75 @@
+﻿.proba {
+    text-decoration: none;
+    color: black;
+}
+.card {
+    width: 30%;
+    margin: 20px;
+    padding: 20px;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+    .card:hover {
+
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        transform: translateY(-2px);
+    }
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.btn {
+    border: 0.5px solid;
+    text-decoration: none;
+
+}
+.btn:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+body {
+    background-image: url('https://i.pinimg.com/564x/e8/f7/f3/e8f7f35df86fd40320048f87a7a7b271.jpg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: cursive;
+}
+
+.input-filter {
+    width: 45%;
+    height:40px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    margin-top:15px;
+    padding:10xp;
+}
+.filter-look{
+    justify-content:center;
+    margin-left:100px;
+    display:flex;
+
+}
+.input2-filter {
+    width: 10%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    margin-top: 15px;
+    padding: 10xp;
+    margin-left:50px;
+}

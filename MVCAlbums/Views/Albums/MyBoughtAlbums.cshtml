@@ -1,0 +1,31 @@
+﻿@model IEnumerable<BoughtAlbums>
+<link rel="stylesheet" href="~/css/boughtalbums.css">
+<h2>My Gallery</h2>
+<div class="container mx-auto mt-4" >
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="@item.Album.AlbumImg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Album.AlbumName</h5>
+                       
+
+
+   
+                        <a asp-action="Details" asp-route-id="@item.Album.Id" class="btn mr-2"> <i class="fas fa-link"></i>Details</a>
+
+
+                        <a asp-controller="Reviews" asp-action="Create" asp-route-albumId="@item.Album.Id" class="btn btn-primary">
+                            <i class="fas fa-pencil-alt"></i> Write Review
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        }
+
+    </div>
+</div>

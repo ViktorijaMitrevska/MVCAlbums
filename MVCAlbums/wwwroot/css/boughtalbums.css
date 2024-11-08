@@ -1,0 +1,34 @@
+﻿.proba {
+    text-decoration: none;
+    color: black;
+}
+
+.card {
+    width: 30%;
+    margin: 20px;
+    padding: 20px;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 100px;
+}
+
+.btn {
+    border: 0.5px solid;
+    text-decoration: none;
+}
+
+body {
+    background-image: url('https://i.pinimg.com/564x/e8/f7/f3/e8f7f35df86fd40320048f87a7a7b271.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

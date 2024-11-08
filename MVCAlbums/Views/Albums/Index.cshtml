@@ -1,0 +1,60 @@
+﻿@model MVCAlbums.ViewModels.AlbumFilterViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="~/css/index.css"> 
+
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <p>
+        <a class="btn" asp-action="Create">Create </a>
+    </p>
+}
+<form asp-controller="Albums" asp-action="Index" method="get" class="filter">
+    <p class="filter-look">
+         <input type="text" asp-for="SearchString" class="input-filter" placeholder="Search..."/>
+        <input type="submit" value="Filter" class="input2-filter"/>
+    </p>
+</form>
+<div class="container mx-auto mt-4">
+  <div class="row">
+      @foreach(var item in Model.Albums)
+      {
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="@item.AlbumImg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.AlbumName</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            @if (item.ArtistId != null)
+                            {
+                                <a asp-controller="Artists" asp-action="Details" asp-route-id="@item.ArtistId" class="proba"> @item.Artist.Name</a>
+                            }
+                        </h6>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn mr-2"> <i class="fas fa-link"></i>Details</a>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn mr-2"><i class="fas fa-link"></i>Edit</a>
+                        }
+                        
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn mr-2"><i class="fas fa-link"></i>Delete</a>
+                        }
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("User")){
+                        <form asp-action="Buy" method="post">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button type="submit" class="btn btn-primary">Favorite</button>
+                        </form>
+                        }
+                    </div>
+                </div>
+            </div>
+
+      }
+    
+  </div>
+</div>  
+

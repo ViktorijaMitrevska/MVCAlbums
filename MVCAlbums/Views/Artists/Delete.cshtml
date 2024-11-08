@@ -1,0 +1,56 @@
+﻿@model MVCAlbums.Models.Artist
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<link rel="stylesheet" href="~/css/details.css">
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this artist?</h3>
+<div>
+    
+    <hr />
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-7 px-3">
+                    <div class="card-block px-6">
+                        <h3 class="card-title">
+                            @Html.DisplayFor(model => model.Name)
+                        </h3>
+
+                        <br />
+                        <p class="card-text">
+                            <strong>@Html.DisplayNameFor(model => model.BirthDate):</strong>
+                            @Html.DisplayFor(model => model.BirthDate)
+                        </p>
+                        <p class="card-text">
+                            <strong>
+                                @Html.DisplayNameFor(model => model.Nationality):
+                            </strong>
+                            @Html.DisplayFor(model => model.Nationality)
+
+                        </p>
+                        <p class="card-text">
+                            <strong>@Html.DisplayNameFor(model => model.Gender):</strong>
+                            @Html.DisplayFor(model => model.Gender)
+                        </p>
+                        <p class="card-text">
+                            @Html.DisplayFor(model => model.About)
+                        </p>
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="Id" />
+                            <input type="submit" value="Delete" class="btn btn-danger" /> 
+                            <a class="btn btn-primary" asp-action="Index">Back to List</a>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <img class="d-block w-100" src="@Url.Content(Model.ArtistImg)" alt="" style="height:600px; width:400px; padding:20px;">
+                </div>
+            </div>
+
+        </div>
+    
+   
+</div>

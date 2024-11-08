@@ -1,0 +1,88 @@
+﻿@model MVCAlbums.Models.Album
+
+@{
+    ViewData["Title"] = "Details";
+}
+<link rel="stylesheet" href="~/css/details.css">
+
+
+<div>
+    
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-7 px-3">
+                    <div class="card-block px-6">
+                        <h3 class="card-title">
+                            @Html.DisplayFor(model => model.AlbumName)
+                        </h3>
+                        <h5 class="card-subtitle">
+                            @if (Model.ArtistId != null)
+                            {
+                                <a class="proba" asp-controller="Artists" asp-action="Details" asp-route-id="@Model.ArtistId">@Html.DisplayFor(model => model.Artist.Name)</a>
+                            }
+                        </h5>
+                        <br />
+                        <p class="card-text">
+                            @Html.DisplayFor(model => model.Description)
+                        </p>
+                        <br />
+                        <p class="card-text">
+                            <strong>@Html.DisplayNameFor(model => model.ReleaseDate):</strong>
+                            @Html.DisplayFor(model => model.ReleaseDate)
+                        </p>
+                        <p class="card-text">
+                            <strong>@Html.DisplayNameFor(model => model.AlbumGenres):</strong>
+                            @if (Model.AlbumGenres != null)
+                            {
+
+                                foreach(var genre in Model.AlbumGenres)
+                                {
+                                    <ul>
+                                        <li>
+                                    <a class="proba" asp-controller="Actors" asp-action="Details" asp-route-id="@genre.GenreId">
+                                        @genre.Genre.GenreName
+                                        </a>
+                                            <br />
+                                        </li>
+                                    </ul>
+                                }
+                            }
+                        </p>
+                        <p class="card-text">
+                            <strong>Click and Listen:</strong>
+                            @Html.DisplayFor(model => model.ListenUrl)
+                        </p>
+                        <p class="card-text">
+                            @if (ViewData["AverageRating"] != null)
+                            {
+                            <p><strong>Average Rating:</strong> @(ViewData["AverageRating"] as double?)</p>
+                            }
+                        </p>
+                        <p class="card-text">
+                            <strong>@Html.DisplayNameFor(model => model.Reviews):</strong>  
+                            @if (Model.Reviews != null)
+                            {
+                                <ul>
+                                @foreach (var review in Model.Reviews)
+                                {
+                                    <li class="comments">@review.Comment</li>
+                                }
+                                </ul>
+                            }
+                        </p>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")){
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+                        }
+                        <a class="btn btn-primary" asp-action="Index">Back to List</a>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <img class="d-block w-100" src="@Url.Content(Model.AlbumImg)" alt="" style="margin-top:80px;">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+   

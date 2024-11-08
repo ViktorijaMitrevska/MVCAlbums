@@ -1,0 +1,49 @@
+﻿.proba {
+    text-decoration: none;
+    color: black;
+}
+.card {
+    font-size: 1em;
+    overflow: hidden;
+    padding: 25px;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    margin-top: 20px;
+}
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    border-top: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: none;
+}
+body {
+    background-image: url('https://i.pinimg.com/564x/e8/f7/f3/e8f7f35df86fd40320048f87a7a7b271.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.albums-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px;
+    justify-content: space-between; 
+}
+
+.album-card {
+    flex: 1 1 calc(33.33% - 20px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    padding: 15px;
+}
+
+.album-items {
+    text-align: center;
+}

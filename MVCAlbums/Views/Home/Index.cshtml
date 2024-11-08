@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<link rel="stylesheet" href="~/css/home.css">
+
+<div id="scene">
+    <div id="left-zone">
+        <ul class="list">
+            <li class="item">
+                <input type="radio" id="radio_playlist" name="basic_carousel" value="playlist" checked>
+                <label for="radio_playlist" class="label_playlist">playlist</label>
+                <div class="content content_playlist">
+                    <span class="picto"></span>
+                    <h1>Playlist</h1>
+                    <p>
+                        Listen to your favorite music everywhere and anytime!
+                    </p>
+                    <a asp-controller="Albums" asp-action="Index"><button class="btn"> Listen here</button></a>
+                </div>
+            </li>
+
+            <li class="item">
+                <input type="radio" id="radio_register" name="basic_carousel" value="register">
+                <label for="radio_register" class="label_register">register</label>
+                <div class="content content_register">
+                    <span class="picto"></span>
+                    <h1>Register</h1>
+                    <p>
+                       If you haven't already made an account, now is the time!
+                    </p>
+                    <a href="/Identity/Account/Register"><button class="btn"> Register here</button></a>
+                </div>
+            </li>
+
+            <li class="item">
+                <input type="radio" id="radio_login" name="basic_carousel" value="login">
+                <label for="radio_login" class="label_login">login</label>
+                <div class="content content_login">
+                    <span class="picto"></span>
+                    <h1>Login</h1>
+                    <p>
+                        Welcome back! Login to have more features and chose your favorite albums.
+                    </p>
+                    <a href="/Identity/Account/Login"><button class="btn"> Login here</button></a>
+                </div>
+            </li>
+
+            
+        </ul>
+    </div>
+
+    <div id="middle-border"></div>
+    <div id="right-zone"></div>
+</div>
